@@ -1,6 +1,5 @@
-import Header from "./components/Header"
-import CardVendas from "./components/CardVendas"
-import NotificationButton from "./components/NotificationButton"
+import Header from "./components/Header";
+import CardVendas from "./components/CardVendas";
 
 /**Declaração de função do javascript */
 function App() {
@@ -19,4 +18,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
