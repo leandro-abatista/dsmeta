@@ -81,7 +81,7 @@ function cardVendas() {
                                         <td>R$ {venda.valor.toFixed(2)}</td>
                                         <td>
                                             <div className="dsmeta-red-btn-container">
-                                                <NotificationButton />
+                                                <NotificationButton vendaId={venda.id} />
                                             </div>
                                         </td>
                                     </tr>
