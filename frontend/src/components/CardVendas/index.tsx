@@ -2,17 +2,26 @@ import NotificationButton from '../NotificationButton';
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import './styles.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 function cardVendas() {
 
     /**Exercício */
     const max = new Date();
-    const min = new Date();
-    //const min = new Date(new Date().setDate(new Date().getDate() - 365));
+    //const min = new Date();
+    const min = new Date(new Date().setDate(new Date().getDate() - 365));
 
     /**Estado para data mínima e estado para data máxima */
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
+
+    /**Uma função como primeiro argumento e uma lista como segundo argumento */
+    useEffect(() => {
+        /**Para testar */
+        axios.get("http://localhost:8080/vendas").then(response => {
+            console.log(response.data);
+        });
+    }, [])
 
     return (
         <div className="dsmeta-card">

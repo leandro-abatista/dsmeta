@@ -31,9 +31,11 @@ public class SmsService {
 
 	public void sendSms(Long idVenda) {
 		
+		/*Aqui estou pegando o id da venda que está sendo passado como parâmtero
+		 * Busca no banco de dados e passa esse id para o o objeto venda*/
 		Venda venda = vendaRepository.findById(idVenda).get();
 		String data = venda.getData().getMonthValue() + "/" + venda.getData().getYear();
-		String msg = "O Vendedor :" + venda.getNomeVendedor() + " foi destaque em " + data
+		String msg = "O Vendedor " + venda.getNomeVendedor() + " foi destaque em " + data
 				+ " com um total de vendas realizadas no valor de R$ : " + String.format("%.2f", venda.getValor());
 
 		Twilio.init(twilioSid, twilioKey);

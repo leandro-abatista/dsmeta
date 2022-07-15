@@ -5,10 +5,10 @@ function Header() {
         <header>
             <div className="dsmeta-logo-container">
                 <img src={logo} alt="ArfaxTechSoft" />
-                <h1>ArfaxTechSoft</h1>
+                <h1>Sistema ATSMeta</h1>
                 <p>
                     Desenvolvido por
-                    <a href="https://www.linkedin.com/in/leandro-amorim-batista/">Leandro Amorim</a>
+                    <a href="https://www.linkedin.com/in/leandro-amorim-batista/"> ₢ArfaxTechSoft</a>
                 </p>
             </div>
         </header>
