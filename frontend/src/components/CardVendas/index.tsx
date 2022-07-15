@@ -1,11 +1,14 @@
 import NotificationButton from '../NotificationButton';
 import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 import './styles.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/request';
 import { Venda } from '../../models/vendas';
+import ptBR from 'date-fns/locale/pt-BR';
+
+registerLocale('pt-br', ptBR);
 function cardVendas() {
 
     /**Exercício */
@@ -37,6 +40,7 @@ function cardVendas() {
             <div>
                 <div className="dsmeta-form-control-container">
                     <DatePicker
+                        locale="pt-br"
                         selected={minDate}
                         onChange={(date: Date) => setMinDate(date)}
                         className="dsmeta-form-control"
@@ -45,6 +49,7 @@ function cardVendas() {
                 </div>
                 <div className="dsmeta-form-control-container">
                     <DatePicker
+                        locale="pt-br"
                         selected={maxDate}
                         onChange={(date: Date) => setMaxDate(date)}
                         className="dsmeta-form-control"
@@ -74,7 +79,7 @@ function cardVendas() {
                                 return (
                                     <tr key={venda.id}>
                                         <td className="show992">#{venda.id}</td>
-                                        <td className="show576">{new Date(venda.data).toLocaleDateString()}</td>
+                                        <td className="show576">{new Date(venda.data).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</td>
                                         <td>{venda.nomeVendedor}</td>
                                         <td className="show992">{venda.visita}</td>
                                         <td className="show992">{venda.venda}</td>
@@ -99,3 +104,7 @@ function cardVendas() {
 }
 
 export default cardVendas;
+
+function ptbr(arg0: string, ptbr: any) {
+    throw new Error('Function not implemented.');
+}
