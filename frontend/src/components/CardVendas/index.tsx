@@ -21,11 +21,15 @@ function cardVendas() {
 
     /**Uma função como primeiro argumento e uma lista como segundo argumento */
     useEffect(() => {
+        /**Quero 10 caracteres a partir da posicao 0 */
+        const dataMinima = minDate.toISOString().slice(0, 10);
+        const dataMaxima = maxDate.toISOString().slice(0, 10);
+
         /**Para testar */
-        axios.get(`${BASE_URL}/vendas`).then(response => {
+        axios.get(`${BASE_URL}/vendas?minDate=${dataMinima}&maxDate=${dataMaxima}`).then(response => {
             setVenda(response.data.content);
         });
-    }, [])
+    }, [minDate, maxDate])/**O useEffect muda sempre que um desses parâmetros de data mudar */
 
     return (
         <div className="dsmeta-card">
